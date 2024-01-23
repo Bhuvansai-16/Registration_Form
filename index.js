@@ -15,7 +15,7 @@ var db=mongoose.connection
 db.on('error',()=> console.log("Error in Connecting to Database"))
 db.once('open',()=> console.log("Connected to Database"))
 
-app.post("/sign_up",(req,res) => {
+app.post("signup_successful.html",(req,res) => {
     var name= req.body.name
     var age=req.body.age
     var email=req.body.email
@@ -31,7 +31,7 @@ app.post("/sign_up",(req,res) => {
         "gender":gender,
         "password":password
     }
-    db.collection('users').insertOne(data,(err,collection) => {
+    db.collection('db1').insertOne(data,(err,collection) => {
         if(err){
             throw err;
         }
